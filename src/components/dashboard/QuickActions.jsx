@@ -109,5 +109,5 @@ const QuickActions = ({ onSendMoney }) => {
   );
 };
 
-// ✅ THIS IS THE FIX - Explicit default export
+
 export default QuickActions;

@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "email": "demo@koinsave.com",
+      "email": "demo@koinnest.com",
       "password": "Demo123!",
       "name": "John Doe",
       "balance": 25317.5,
@@ -12,7 +12,7 @@
     },
     {
       "id": "2",
-      "email": "jane@koinsave.com",
+      "email": "jane@koinnest.com",
       "password": "Jane123!",
       "name": "Jane Smith",
       "balance": 15200.75,

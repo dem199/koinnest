@@ -50,7 +50,7 @@ A modern fintech dashboard built with Next.js 14, featuring authentication, tran
 
 1. **Clone the repository**
    ```bash
-   git clone <https://github.com/dem199/koinsave/>
+   git clone <https://github.com/dem199/koinnest/>
    cd koinsave-dashboard
    ```
 
@@ -64,7 +64,7 @@ A modern fintech dashboard built with Next.js 14, featuring authentication, tran
    Create a `.env.local` file in the root directory:
    ```env
    NEXT_PUBLIC_API_URL=http://localhost:5000
-   NEXT_PUBLIC_APP_NAME=Koinsave
+   NEXT_PUBLIC_APP_NAME=Koinnest
    NEXT_PUBLIC_APP_VERSION=1.0.0
    ```
 
@@ -85,13 +85,13 @@ A modern fintech dashboard built with Next.js 14, featuring authentication, tran
 
 Use these credentials to test the application:
 
-- **Email:** demo@koinsave.com
+- **Email:** demo@koinnest.com
 - **Password:** Demo123!
 
 ##  Project Structure
 
 ```
-koinsave-dashboard/
+koinnest/
 ├── src/
 │   ├── app/                      # Next.js App Router
 │   │   ├── layout.js            # Root layout with providers
@@ -163,7 +163,7 @@ koinsave-dashboard/
    git init
    git add .
    git commit -m "Initial commit"
-   git remote add origin <https://github.com/dem199/koinsave/>
+   git remote add origin <https://github.com/dem199/koinnest/>
    git push -u origin main
    ```
 
@@ -206,7 +206,7 @@ koinsave-dashboard/
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `NEXT_PUBLIC_API_URL` | Mock API URL | `http://localhost:5000` |
-| `NEXT_PUBLIC_APP_NAME` | Application name | `Koinsave` |
+| `NEXT_PUBLIC_APP_NAME` | Application name | `Koinnest` |
 | `NEXT_PUBLIC_APP_VERSION` | App version | `1.0.0` |
 
 ##  Known Limitations
@@ -250,4 +250,4 @@ This project is created for demonstration purposes as part of a pre-interview ta
 
 ---
 
-**Built with love for Koinsave By Optimistic**
+**Built with love for Koinnest By Optimistic**

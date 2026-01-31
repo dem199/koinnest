@@ -36,7 +36,7 @@ const LoginForm = () => {
           Welcome Back
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
-          Sign in to your Koinsave account
+          Sign in to your Koinnest account
         </p>
       </div>
 
@@ -115,7 +115,7 @@ const LoginForm = () => {
               Demo Credentials:
             </p>
             <p className="text-xs text-emerald-700 dark:text-emerald-300">
-              Email: demo@koinsave.com<br />
+              Email: demo@koinnest.com<br />
               Password: Demo123!
             </p>
           </div>

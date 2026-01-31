@@ -40,7 +40,7 @@ export default function SignupPage() {
             </div>
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Join Koinsave
+            Join Koinnest
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
             Start your journey to better financial management

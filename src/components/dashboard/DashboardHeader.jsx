@@ -18,7 +18,7 @@ const DashboardHeader = () => {
               <span className="text-xl font-bold text-white">K</span>
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-white">
-              Koinsave
+              Koinnest
             </span>
           </div>
 

@@ -11,6 +11,7 @@ import ChartSection from '@/components/dashboard/ChartSection';
 import TransactionsList from '@/components/dashboard/TransactionsList';
 import SendMoneyModal from '@/components/dashboard/SendMoneyModal';
 import AddExpenseModal from '@/components/dashboard/AddExpenseModal';
+import SpendingInsights from '@/components/dashboard/SpendingInsights'; // New Import
 import { Plus, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -99,7 +100,18 @@ export default function DashboardPage() {
             <QuickActions onSendMoney={() => setIsSendMoneyOpen(true)} />
           </div>
 
-          {/* Subscription Tracker - NEW! */}
+          {/* Spending Insights Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            key={`insights-${refreshKey}`}
+            className="mb-8"
+          >
+            <SpendingInsights />
+          </motion.div>
+
+          {/* Subscription Tracker */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('user', JSON.stringify(user));
       setUser(user);
       
-      toast.success(`Welcome to Koinsave, ${user.name}!`);
+      toast.success(`Welcome to Koinnest, ${user.name}!`);
       router.push('/dashboard');
       
       return { success: true };

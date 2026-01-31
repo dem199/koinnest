@@ -64,7 +64,7 @@ const ExportButton = ({ transactions }) => {
       link.setAttribute('href', url);
       link.setAttribute(
         'download',
-        `koinsave-transactions-${new Date().toISOString().split('T')[0]}.csv`
+        `koinnest-transactions-${new Date().toISOString().split('T')[0]}.csv`
       );
       link.style.visibility = 'hidden';
 
@@ -101,7 +101,7 @@ const ExportButton = ({ transactions }) => {
       link.setAttribute('href', url);
       link.setAttribute(
         'download',
-        `koinsave-transactions-${new Date().toISOString().split('T')[0]}.json`
+        `koinnest-transactions-${new Date().toISOString().split('T')[0]}.json`
       );
       link.style.visibility = 'hidden';
 

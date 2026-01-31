@@ -40,7 +40,7 @@ const SignupForm = () => {
           Create Account
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
-          Join Koinsave and start saving today
+          Join Koinnest and start saving today
         </p>
       </div>
 

@@ -20,7 +20,7 @@ const SafeToSpend = () => {
 
       try {
         const balance = user.balance || 0;
-        const upcomingBills = 200; // Simplified for demo
+        const upcomingBills = 200;
         const savingsGoal = balance * 0.1;
         const buffer = Math.max(50, balance * 0.05);
         
