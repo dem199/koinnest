@@ -51,7 +51,7 @@ export default function SpendingInsights() {
             icon: TrendingUp,
             title: 'Spending Alert',
             message: `You're spending ${percentChange}% more than last month. Consider reviewing your expenses.`,
-            color: 'red',
+            color: 'error',
           });
         } else if (percentChange < -10) {
           newInsights.push({
@@ -60,7 +60,7 @@ export default function SpendingInsights() {
             icon: Trophy,
             title: 'Great Job!',
             message: `You've reduced spending by ${Math.abs(percentChange)}% compared to last month!`,
-            color: 'green',
+            color: 'success',
           });
         }
 
@@ -80,7 +80,7 @@ export default function SpendingInsights() {
             icon: AlertCircle,
             title: 'Top Spending Category',
             message: `Most money went to ${topCategory[0]}: $${topCategory[1].toFixed(2)}. Is this aligned with your priorities?`,
-            color: 'blue',
+            color: 'info',
           });
         }
 
@@ -96,7 +96,7 @@ export default function SpendingInsights() {
             icon: Lightbulb,
             title: 'Savings Opportunity',
             message: `You spent $${smallPurchases.toFixed(2)} on small purchases. Reducing these by 50% could save you $${(smallPurchases * 6).toFixed(2)}/year!`,
-            color: 'yellow',
+            color: 'warning',
           });
         }
 
@@ -114,7 +114,7 @@ export default function SpendingInsights() {
             icon: Trophy,
             title: 'Excellent Savings Rate!',
             message: `You're saving ${savingsRate}% of your income. Keep it up!`,
-            color: 'green',
+            color: 'success',
           });
         } else if (savingsRate < 10 && income > 0) {
           newInsights.push({
@@ -123,11 +123,11 @@ export default function SpendingInsights() {
             icon: TrendingDown,
             title: 'Low Savings Rate',
             message: `You're only saving ${savingsRate}% of your income. Aim for at least 20%.`,
-            color: 'orange',
+            color: 'warning',
           });
         }
 
-        setInsights(newInsights.slice(0, 3)); // Show max 3 insights
+        setInsights(newInsights.slice(0, 3));
       } catch (error) {
         console.error('Failed to generate insights:', error);
       } finally {
@@ -138,23 +138,42 @@ export default function SpendingInsights() {
     generateInsights();
   }, [user]);
 
-  const getColorClasses = (color) => {
-    const colors = {
-      red: 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-900 dark:text-red-100',
-      green: 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-900 dark:text-green-100',
-      blue: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-900 dark:text-blue-100',
-      yellow: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-100',
-      orange: 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800 text-orange-900 dark:text-orange-100',
+  const getColorStyles = (color) => {
+    const styles = {
+      error: {
+        bg: 'var(--error-bg)',
+        border: 'var(--error-border)',
+        text: 'var(--text-primary)',
+        icon: 'var(--error)',
+      },
+      success: {
+        bg: 'var(--success-bg)',
+        border: 'var(--success-border)',
+        text: 'var(--text-primary)',
+        icon: 'var(--success)',
+      },
+      info: {
+        bg: 'var(--info-bg)',
+        border: 'var(--info-border)',
+        text: 'var(--text-primary)',
+        icon: 'var(--info)',
+      },
+      warning: {
+        bg: 'var(--warning-bg)',
+        border: 'var(--warning-border)',
+        text: 'var(--text-primary)',
+        icon: 'var(--warning)',
+      },
     };
-    return colors[color] || colors.blue;
+    return styles[color] || styles.info;
   };
 
   if (loading) {
     return (
       <div className="card">
         <div className="animate-pulse space-y-3">
-          <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/3" />
-          <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded" />
+          <div className="h-6 rounded" style={{ backgroundColor: 'var(--bg-tertiary)', width: '33%' }} />
+          <div className="h-20 rounded" style={{ backgroundColor: 'var(--bg-tertiary)' }} />
         </div>
       </div>
     );
@@ -163,8 +182,8 @@ export default function SpendingInsights() {
   if (insights.length === 0) {
     return (
       <div className="card text-center py-8">
-        <Lightbulb size={40} className="mx-auto mb-3 text-gray-400" />
-        <p className="text-gray-600 dark:text-gray-400">
+        <Lightbulb size={40} className="mx-auto mb-3" style={{ color: 'var(--text-tertiary)' }} />
+        <p style={{ color: 'var(--text-secondary)' }}>
           Add more transactions to get personalized insights!
         </p>
       </div>
@@ -173,26 +192,36 @@ export default function SpendingInsights() {
 
   return (
     <div className="space-y-3">
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-        <Lightbulb size={20} className="text-yellow-500" />
+      <h2 className="text-lg font-semibold flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+        <Lightbulb size={20} style={{ color: 'var(--warning)' }} />
         Your Money Insights
       </h2>
 
       {insights.map((insight, index) => {
         const Icon = insight.icon;
+        const colorStyles = getColorStyles(insight.color);
+        
         return (
           <motion.div
             key={insight.id}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className={`border rounded-lg p-4 ${getColorClasses(insight.color)}`}
+            className="border rounded-lg p-4"
+            style={{
+              backgroundColor: colorStyles.bg,
+              borderColor: colorStyles.border,
+            }}
           >
             <div className="flex items-start gap-3">
-              <Icon size={24} className="flex-shrink-0 mt-0.5" />
+              <Icon size={24} className="flex-shrink-0 mt-0.5" style={{ color: colorStyles.icon }} />
               <div className="flex-1">
-                <h3 className="font-semibold mb-1">{insight.title}</h3>
-                <p className="text-sm opacity-90">{insight.message}</p>
+                <h3 className="font-semibold mb-1" style={{ color: colorStyles.text }}>
+                  {insight.title}
+                </h3>
+                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                  {insight.message}
+                </p>
               </div>
             </div>
           </motion.div>

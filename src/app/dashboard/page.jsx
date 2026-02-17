@@ -7,11 +7,11 @@ import BalanceCard from '@/components/dashboard/BalanceCard';
 import SafeToSpend from '@/components/dashboard/SafeToSpend';
 import QuickActions from '@/components/dashboard/QuickActions';
 import SubscriptionTracker from '@/components/dashboard/SubscriptionTracker';
+import SpendingInsights from '@/components/dashboard/SpendingInsights';
 import ChartSection from '@/components/dashboard/ChartSection';
 import TransactionsList from '@/components/dashboard/TransactionsList';
 import SendMoneyModal from '@/components/dashboard/SendMoneyModal';
 import AddExpenseModal from '@/components/dashboard/AddExpenseModal';
-import SpendingInsights from '@/components/dashboard/SpendingInsights'; // New Import
 import { Plus, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -26,11 +26,10 @@ export default function DashboardPage() {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-white dark:bg-gray-900">
         <DashboardHeader />
         
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          
           {/* Welcome Section */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -42,7 +41,7 @@ export default function DashboardPage() {
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
                 Welcome back! 👋
               </h1>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-gray-300">
                 Here&apos;s what&apos;s happening with your money today.
               </p>
             </div>
@@ -51,7 +50,7 @@ export default function DashboardPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsAddExpenseOpen(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold transition-all hover:shadow-lg"
+              className="btn-primary flex items-center gap-2"
             >
               <Plus size={20} />
               <span>Add Transaction</span>
@@ -100,7 +99,7 @@ export default function DashboardPage() {
             <QuickActions onSendMoney={() => setIsSendMoneyOpen(true)} />
           </div>
 
-          {/* Spending Insights Section */}
+          {/* Spending Insights */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

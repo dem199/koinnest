@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Toast Variables */
 :root {
   --toast-bg: #ffffff;
   --toast-color: #1F2937;
@@ -10,28 +11,23 @@
   --toast-color: #ffffff;
 }
 
-/* Ensure smooth transitions */
-* {
-  transition-property: background-color, border-color, color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-}
-
-/* Custom component classes */
+/* Card Component */
 .card {
   background-color: white;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e7eb;
   padding: 1.5rem;
+  transition: all 0.2s;
 }
 
 .dark .card {
   background-color: #1f2937;
   border-color: #374151;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  color: #f9fafb;
 }
 
+/* Balance Card */
 .balance-card {
   background: linear-gradient(to bottom right, #10b981, #059669);
   color: white;
@@ -40,6 +36,7 @@
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+/* Primary Button */
 .btn-primary {
   background-color: #10b981;
   color: white;
@@ -47,6 +44,8 @@
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -64,6 +63,7 @@
   cursor: not-allowed;
 }
 
+/* Secondary Button */
 .btn-secondary {
   background-color: white;
   border: 2px solid #e5e7eb;
@@ -72,6 +72,7 @@
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .dark .btn-secondary {
@@ -88,6 +89,7 @@
   background-color: #4b5563;
 }
 
+/* Input Fields */
 .input-field {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -118,6 +120,7 @@
   color: #9ca3af;
 }
 
+/* Transaction Item */
 .transaction-item {
   display: flex;
   align-items: center;
@@ -136,6 +139,7 @@
   background-color: #374151;
 }
 
+/* Modal Backdrop */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -147,6 +151,7 @@
   z-index: 50;
 }
 
+/* Modal Content */
 .modal-content {
   background-color: white;
   border-radius: 0.75rem;
@@ -160,67 +165,25 @@
   background-color: #1f2937;
 }
 
-/* Fix for dark mode text visibility */
-.dark input,
-.dark select,
-.dark textarea {
+/* Ensure modal text is visible in dark mode */
+.dark .modal-content,
+.dark .modal-content h1,
+.dark .modal-content h2,
+.dark .modal-content h3,
+.dark .modal-content label,
+.dark .modal-content p,
+.dark .modal-content span {
   color: #f9fafb;
 }
 
-.dark label {
-  color: #e5e7eb;
+/* Select dropdowns in dark mode */
+.dark select {
+  background-color: #374151;
+  color: #f9fafb;
+  border-color: #4b5563;
 }
 
-/* Ensure all text is visible in dark mode */
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6,
-.dark p,
-.dark span,
-.dark div {
-  color: inherit;
-}
-
-/* Dropdown fix for dark mode */
 .dark select option {
   background-color: #1f2937;
   color: #f9fafb;
-}
-
-
-/* Force text visibility in dark mode */
-.dark .card * {
-  color: inherit;
-}
-
-.dark .card h1,
-.dark .card h2,
-.dark .card h3,
-.dark .card h4,
-.dark .card p,
-.dark .card span,
-.dark .card div {
-  color: #f9fafb;
-}
-
-/* Specific overrides for colored text */
-.dark .text-gray-600 {
-  color: #d1d5db !important;
-}
-
-.dark .text-gray-500 {
-  color: #9ca3af !important;
-}
-
-.dark .text-gray-700 {
-  color: #e5e7eb !important;
-}
-
-/* Ensure small text is visible */
-.dark .text-xs,
-.dark .text-sm {
-  color: #d1d5db;
 }

@@ -1,4 +1,4 @@
-# Koinsave Dashboard
+# Koinnest Dashboard
 
 A modern fintech dashboard built with Next.js 14, featuring authentication, transaction management, and a clean, responsive UI with dark mode support.
 

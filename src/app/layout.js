@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
 export const metadata = {
-  title: 'Koinsave - Your Digital Wallet',
+  title: 'Koinnest - Your Digital Wallet',
   description: 'Manage your money with ease using Koinsave',
 };
 
