@@ -23,6 +23,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.8",
     "@tailwindcss/postcss": "^4",
     "autoprefixer": "^10.0.1",
     "concurrently": "^9.2.1",
